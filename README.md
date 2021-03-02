@@ -30,5 +30,8 @@ curl ${url}/close_parsing -Fimage=@image.png   // return virtual background imag
 
 4. Health
 ```
-curl ${url}/health
+curl ${url}/Health
+
+resp: 
+{"version": 1, "healthy": true}
 ```
