@@ -15,11 +15,11 @@ docker-compose up
 
 
 ```fake
-export url=http://ec2-34-247-255-170.eu-west-1.compute.amazonaws.com:5000
+fake: export url=http://ec2-34-247-255-170.eu-west-1.compute.amazonaws.com:5000
 ```
 
 ```local
-export url=http://localhost:5000
+local export url=http://localhost:5000
 ```
 
 
@@ -35,7 +35,7 @@ curl ${url}/face_id -Fmethod=status -Fuser_id="allie" // return status
 ```
 
 
-2. Virtual Background
+<!-- 2. Virtual Background
 ```
 curl ${url}/virtual_background -Fimage=@image.png  -Fbackground=@background.png // return virtual background image
 curl ${url}/virtual_background -Fimage=@image.png  -Fbackground=@background.png > output.png   // to save the returned image
@@ -46,7 +46,7 @@ curl ${url}/virtual_background -Fimage=@image.png  -Fbackground=@background.png 
 ```
 curl ${url}/close_parsing -Fimage=@image.png   // return virtual background image
 ```
-
+ -->
 
 4. Health
 ```
