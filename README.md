@@ -1,6 +1,6 @@
 ## to run
 
-(pre-requisite, 1, download docker, 2 download model ```model-0000.params``` and put into folder ```mtcnninsightface/insightface-model/```)
+(pre-requisite, 1, download docker, 2 download model ```model-0000.params``` and put into folder ```mtcnninsightface/insightface-model/```. Link: https://drive.google.com/file/d/1Da1cnmQYSqhHzZH7ejVOoP9VfKTqHFML/view?usp=sharing)
 
 ```build docker image
 docker-compose build
@@ -19,7 +19,7 @@ fake: export url=http://ec2-34-247-255-170.eu-west-1.compute.amazonaws.com:5000
 ```
 
 ```local
-local export url=http://localhost:5000
+local real: export url=http://localhost:5000
 ```
 
 
