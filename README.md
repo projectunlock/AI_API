@@ -1,9 +1,27 @@
+## to run
+
+(pre-requisite, download docker)
+
+```build docker image
+docker-compose build
+```
+
+```run docker image
+docker-compose up
+```
+
+
 ## curl commands
 
 
-```
+```fake
 export url=http://ec2-34-247-255-170.eu-west-1.compute.amazonaws.com:5000
 ```
+
+```local
+export url=http://localhost:5000
+```
+
 
 
 1. Face_id
@@ -12,6 +30,8 @@ train:
 curl ${url}/face_id -Fmethod=train -Fimage=@image.png  -Fuser_id="allie"  // this keeps upload, return train status
 unlock:
 curl ${url}/face_id -Fmethod=unlock -Fimage=@image.png // return user_id
+status:
+curl ${url}/face_id -Fmethod=status -Fuser_id="allie" // return status
 ```
 
 
@@ -30,8 +50,9 @@ curl ${url}/close_parsing -Fimage=@image.png   // return virtual background imag
 
 4. Health
 ```
-curl ${url}/Health
-
-resp: 
-{"version": 1, "healthy": true}
+curl ${url}/health
 ```
+
+
+## params
+to adjust the minimal number of images for face_id train, modify line 18 in app.py parameter ```min_train```

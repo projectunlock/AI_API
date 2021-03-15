@@ -1,0 +1,9 @@
+flask
+flask_cors
+numpy
+Pillow
+mxnet
+opencv-python
+sklearn
+scikit-learn
+scikit-image
