@@ -1,6 +1,6 @@
 ## to run
 
-(pre-requisite, download docker)
+(pre-requisite, 1, download docker, 2 download model ```model-0000.params``` and put into folder ```mtcnninsightface/insightface-model/```)
 
 ```build docker image
 docker-compose build
