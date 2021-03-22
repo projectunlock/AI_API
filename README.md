@@ -7,7 +7,7 @@
 
 ## build and run
 ```build docker image
-docker-compose build
+docker-compose build (re-build everytime there is an update)
 ```
 
 ```run docker image
@@ -18,11 +18,8 @@ docker-compose up
 ## curl commands
 
 
-```fake
-fake: export url=http://ec2-34-247-255-170.eu-west-1.compute.amazonaws.com:5000
 ```
-
-```local
+fake: export url=http://ec2-34-247-255-170.eu-west-1.compute.amazonaws.com:5000
 local real: export url=http://localhost:5000
 ```
 
