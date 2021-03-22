@@ -7,3 +7,5 @@ opencv-python
 sklearn
 scikit-learn
 scikit-image
+tensorflow==2.4.1
+keras

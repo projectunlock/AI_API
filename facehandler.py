@@ -33,7 +33,7 @@ class FaceHandler(object):
 
         # write the new image feature to local
         image = np.array(image)[:,:,::-1]
-        features, _ = self.mtcnninsightface.extract_feat(image, save_folder = os.path.join("/demo/faces", user_id))
+        features, _ = self.mtcnninsightface.extract_feat(image, save_folder = os.path.join("./faces", user_id))
         if len(features) < 1:
             return {'error': 'there is no face in the input image'}
 

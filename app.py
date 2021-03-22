@@ -13,9 +13,11 @@ import numpy as np
 from PIL import Image
 from urllib.request import urlretrieve
 from facehandler import FaceHandler
+from clothparser import ClothParser
 
 
-facehandler = FaceHandler("mtcnninsigntface/mtcnn-model", "mtcnninsigntface/insightface-model/model", min_train = 5)
+facehandler = FaceHandler("mtcnninsigntface/mtcnn-model", "mtcnninsigntface/insightface-model/model", min_train = 4)
+clothparser = ClothParser("modanet")
 
 
 def http_mode():
@@ -68,23 +70,45 @@ def http_mode():
                 return facehandler.check_status(user_id)
 
 
-    # @app.route('/close_parsing', methods = ['GET', 'POST'])
-    # def clothParse():
-    #     if request.method == 'POST':
-    #         if 'image' not in request.files:
-    #             return json.dumps({'error': 'need an image'})
+    @app.route('/close_parsing', methods = ['GET', 'POST'])
+    def clothParse():
+        if request.method == 'POST':
 
-    #         image = request.files.get('image')
-    #         try:
-    #             img = Image.open(BytesIO(image.read())).convert("RGB")
-    #         except:
-    #             return json.dumps({'error': 'invalid image'})
+            method = request.form.get('method')
 
-    #         response = {}
-    #         response['object_ids'] = [0,1]
-    #         response['bboxes'] = [[0.9, 0.9, 0.7, 0.6], [0.1, 0.2, 0.3, 0.4]]
-    #         response['tag'] = ['pant', 'top']
-    #         return json.dumps(response)
+            if method == 'tag':
+                if 'image' not in request.files:
+                    return json.dumps({'error': 'need an image'})
+
+                image = request.files.get('image')
+                try:
+                    image = Image.open(BytesIO(image.read())).convert("RGB")
+                except:
+                    return json.dumps({'error': 'invalid image'})
+
+                if 'user_id' not in request.form:
+                    return json.dumps({'error': 'need an user_id'})
+                user_id = request.form.get('user_id')
+
+                tagged_file_path = clothparser.parse(image, user_id)
+
+                return send_file(tagged_file_path)
+
+            elif method == 'search':
+                if 'user_id' not in request.form:
+                    return json.dumps({'error': 'need an user_id'})
+                user_id = request.form.get('user_id')
+
+                if 'tag' not in request.form:
+                    return json.dumps({'error': 'need  tag keyword'})
+                tag = request.form.get('tag')
+
+                response = clothparser.search(tag, user_id)
+
+                return json.dumps(response)
+
+            else:
+                return json.dumps({'error': 'only support search and tag method for cloth auto tag'})
 
 
 
