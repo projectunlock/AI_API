@@ -50,10 +50,10 @@ curl ${url}/close_parsing -Fmethod=tag -Fimage=@image.png  -Fuser_id=allie // re
 curl ${url}/close_parsing -Fmethod=tag -Fimage=@image.png  -Fuser_id=allie > result.jpg // save the result  tagged image
 search:
 curl ${url}/close_parsing -Fmethod=search -Ftag=top -Fuser_id=allie // return image files with the relevant keyword. Empty if not available. Will add S3 support later
-```
 
 list of tags:
-```['bag', 'belt','boots','footwear','outer','dress','sunglasses','pants','top','shorts','skirt','headwear','scarf/tie']```
+['bag', 'belt','boots','footwear','outer','dress','sunglasses','pants','top','shorts','skirt','headwear','scarf/tie']
+```
 
 
 4. Health
