@@ -1,7 +1,11 @@
-## to run
+## pre-requisite
 
-(pre-requisite, 1, download docker, 2 download model ```model-0000.params``` and put into folder ```mtcnninsightface/insightface-model/```. Link: https://drive.google.com/file/d/1Da1cnmQYSqhHzZH7ejVOoP9VfKTqHFML/view?usp=sharing, 3 download cloth tag model ```mask_rcnn_Modanet.h5```  and put into folder ```modanet```. Link: https://drive.google.com/file/d/1narGkkyBS1TTtpWCPErsieAX7zozarde/view?usp=sharing)
+1. download docker
+2. download model ```model-0000.params``` and put into folder ```mtcnninsightface/insightface-model/```. Link: https://drive.google.com/file/d/1Da1cnmQYSqhHzZH7ejVOoP9VfKTqHFML/view?usp=sharing, 
+3. download cloth tag model ```mask_rcnn_Modanet.h5```  and put into folder ```modanet```. Link: https://drive.google.com/file/d/1narGkkyBS1TTtpWCPErsieAX7zozarde/view?usp=sharing
 
+
+## build and run
 ```build docker image
 docker-compose build
 ```
