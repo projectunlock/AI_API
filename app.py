@@ -16,7 +16,7 @@ from facehandler import FaceHandler
 from clothparser import ClothParser
 
 
-facehandler = FaceHandler("mtcnninsigntface/mtcnn-model", "mtcnninsigntface/insightface-model/model", min_train = 4)
+facehandler = FaceHandler("mtcnninsigntface/mtcnn-model", "mtcnninsigntface/insightface-model/model", min_train = 3)
 clothparser = ClothParser("modanet")
 
 

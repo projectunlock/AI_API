@@ -1,6 +1,6 @@
 from __future__ import absolute_import
 
-import sys, os, io
+import sys, os, io, random
 import numpy as np
 from base64 import encodebytes
 from PIL import Image, ImageFont, ImageDraw, ImageEnhance
@@ -11,7 +11,6 @@ from datetime import datetime
 sys.path.append("modanet")
 from mrcnn import utils
 import mrcnn.model as modellib
-from mrcnn import visualize
 import custom
 from collections import defaultdict
 
@@ -98,7 +97,9 @@ class ClothParser(object):
             box = bboxes[i]
             y1, x1, y2, x2 = box
             draw.rectangle(((x1, y1), (x2, y2)), outline = (0,0,0))
-            draw.text((int((x1+x2)/2), int((y1+y2)/2)), label, fill = (0,0,0))
+
+            color = (random.randint(1, 255), random.randint(1, 255), random.randint(1, 255))
+            draw.text((x1 + 5, y1 + 5), label, fill = color)
             self.saved_clothes[user_id][label].append([box, scores[i], filename])
         print (self.saved_clothes[user_id])
 

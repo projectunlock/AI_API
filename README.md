@@ -46,10 +46,14 @@ curl ${url}/virtual_background -Fimage=@image.png  -Fbackground=@background.png 
 3. Cloth Parsing
 ```
 auto-tag:
-curl ${url}/close_parsing -Fmethod=tag -Fimage=@image.png  -Fuser_id=allie // return a dictionary of {'bboxes': bboxes, "scores": scores, "labels": labels}
+curl ${url}/close_parsing -Fmethod=tag -Fimage=@image.png  -Fuser_id=allie // return the result tagged image
+curl ${url}/close_parsing -Fmethod=tag -Fimage=@image.png  -Fuser_id=allie > result.jpg // save the result  tagged image
 search:
-curl ${url}/close_parsing -Fmethod=search -Ftag=top -Fuser_id=allie // return image files with the relevant keyword. Empty if not available
+curl ${url}/close_parsing -Fmethod=search -Ftag=top -Fuser_id=allie // return image files with the relevant keyword. Empty if not available. Will add S3 support later
 ```
+
+list of tags:
+```['bag', 'belt','boots','footwear','outer','dress','sunglasses','pants','top','shorts','skirt','headwear','scarf/tie']```
 
 
 4. Health
@@ -59,4 +63,4 @@ curl ${url}/health
 
 
 ## params
-to adjust the minimal number of images for face_id train, modify line 18 in app.py parameter ```min_train```
+to adjust the minimal number of images for face_id train, modify line 19 in app.py parameter ```min_train```
